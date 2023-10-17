@@ -13,7 +13,7 @@ public class Homework2 {
         System.out.println(string1 + " " + string1.length());
         String string2 = string1.substring(0, 35);
         System.out.println(string2 + " " + string2.length());
-        String string3 = string2.concat("it is perfect");
+        String string3 = string2.replace(" i ", " don`t ").concat("it is perfect");
         System.out.println(string3 + " " + string3.length());
 
 
@@ -47,6 +47,11 @@ public class Homework2 {
     character ‘a’ occurs there. And we can use the split method and the length method.”
     используя метод split и информацию по поводу поля length Решить данную задачу с учетов верхнего и
     нижнего регистра символа ‘a’. */
+
+        String x = "Completely random text in English. In it, we just need to determine how many times the character 'a’ occurs there. And we can use the split method and the length method.";
+        String[] arrayOfWords = x.toLowerCase().split("a");
+        int size = arrayOfWords.length-1;
+        System.out.println(size);
 
     }
 }
