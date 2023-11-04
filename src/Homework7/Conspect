@@ -1,0 +1,18 @@
+package Homework7;
+
+
+    /*Создать класс Конспект. Класс должен содержать следующие поля:
+ФИО студента;
+Название предмета;
+Количество страниц;
+Год выпуска;
+Цвет обложки.
+Название заведения, где учится студент;*/
+    public class Conspect {
+        String name;
+        String subject;
+        int pages;
+        int yearOfIssue;
+        String color;
+        String school;
+}

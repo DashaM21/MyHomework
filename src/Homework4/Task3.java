@@ -13,17 +13,19 @@ public class Task3 {
         System.out.println("Введите вес металла");
         int maxWeight = x.nextInt();
         int weight = 0;
-        while((maxWeight-weight)>0) {
+        while ((maxWeight - weight) > 0) {
             System.out.println("Какой вес вы хотите сдать?)");
             weight = x.nextInt();
-            if(weight>5) {
-                System.out.println(maxWeight-= weight);
+            if ((maxWeight - weight) > 0) {
+                if (weight > 5) {
+                    System.out.println(maxWeight -= weight);
+                    } else if (weight < 5 ) {
+                        System.out.println("Введите число больше 5:");
+                    } else {
+                        System.out.println("Невозможна данная операция");
+                    }
+                }
 
-            } else {
-                System.out.println("Введите число больше 5:");
             }
-
         }
     }
-
-}
