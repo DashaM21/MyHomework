@@ -20,68 +20,51 @@ public class Task1 {
 • Уражену ціль відзначити як x.
 • Завдання повинно бути виконане за допомогою масивів (НЕ використовуйте інтерфейси List, Set, Map).
          */
-        int[][] array = new int[5][5];
-        Random value = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i][i] = value.nextInt(1000);
-            //инициализация переменных
             int[][] field = new int[5][5];
-            int[] maxValues = new int[5];
-            int targetX = 0;
-            int targetY = 0;
+            Random random = new Random();
+            int targetX = random.nextInt(5);
+            int targetY = random.nextInt(5);
 
-
-            for (int k = 0; k < field.length; k++) {
-                for (int j = 0; j < field[k].length; j++) {
-                    field[k][j] = value.nextInt(1000) + 1; // Генерация случайных целей от 1 до 1000
-                }
-            }
-
-            // генерация координат цели
-            targetX = new Random().nextInt(5);
-            targetY = new Random().nextInt(5);
-
-            // начало игры
             System.out.println("All Set. Get ready to rumble!");
             boolean won = false;
+
             while (!won) {
-                // ввод координат выстрела
+                // Вывод игрового поля
+                for (int i = 0; i < field.length; i++) {
+                    for (int j = 0; j < field[i].length; j++) {
+                        if (field[i][j] == -1) {
+                            System.out.print("* ");
+                        } else if (i == targetX && j == targetY) {
+                            System.out.print("x ");
+                        } else {
+                            System.out.print("_ ");
+                        }
+                    }
+                    System.out.println();
+                }
+
+                // Ввод координат выстрела
                 System.out.print("Введите номер линии: ");
                 Scanner scanner = new Scanner(System.in);
                 int line = scanner.nextInt();
                 System.out.print("Введите номер столбца: ");
                 int column = scanner.nextInt();
 
-                // проверка ввода
-                if (line < 1 || line > 5 || column < 1 || column > 5) {
+                // Проверка ввода
+                if (line < 1 || line > 5 || column < 1 || column > 5){
                     System.out.println("Некорректный ввод. Повторите попытку.");
                     continue;
                 }
 
-                // обработка выстрела
-                if (field[line - 1][column - 1] == targetX * targetY) {
-                    // Hit the target
+                // Обработка выстрела
+                if (line - 1 == targetX && column - 1 == targetY) {
                     System.out.println("You have won!");
                     won = true;
                 } else {
-                    // Miss
                     System.out.println("You missed the target!");
-                    field[line - 1][column - 1] = -1; // Mark the miss with -1
-                }
-                for (int h = 0; h < field.length; h++) {
-                    for (int j = 0; j < field[h].length; j++) {
-                        if (field[h][j] == -1) {
-                            System.out.print("* ");
-                        } else {
-                            System.out.print(field[h][j] + " ");
-                        }
-                    }
-                    System.out.println();
-                }
+                    field[line - 1][column - 1] = -1; // Отмечаем промах -1
                 }
             }
-
         }
     }
-
 

@@ -32,7 +32,7 @@ public class Task1 {
             else if (guessNumber > array[0]) {
                 System.out.println("Your number is too big. Please, try again..");
             } else {
-                System.out.println("Congratulations, {name}!");
+                System.out.println("Congratulations," +name + "!");
                 break;
             }
 
